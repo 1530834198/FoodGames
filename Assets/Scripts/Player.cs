@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Animator Anim;
+    private int speed = 3;
 
     // Start is called before the first frame update
     void Awake()
@@ -26,7 +27,10 @@ public class Player : MonoBehaviour
     public void PlayerMove() {
         float h = Input.GetAxis("Horizontal") * Time.deltaTime *3;
         float v = Input.GetAxis("Vertical") * Time.deltaTime * 3;
-        transform.Translate(new Vector3(h, 0, v));
+        Vector3 move = new Vector3(h, 0, v);    //获取坐标系
+        Vector3 to = transform.position + move;    //要看向的目标点
+        transform.LookAt(to);   //player转动方向
+        transform.position += move * speed * Time.deltaTime;    //player移动
     }
     public void Charachter() {
         if (Input.GetKeyDown(KeyCode.W)) //向前
@@ -53,6 +57,5 @@ public class Player : MonoBehaviour
         {
             Anim.SetBool("right", false);
         }
-
     }
 }
