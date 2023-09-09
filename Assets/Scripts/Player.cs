@@ -32,30 +32,13 @@ public class Player : MonoBehaviour
         transform.LookAt(to);   //player转动方向
         transform.position += move * speed * Time.deltaTime;    //player移动
     }
+    /**
+     * 角色的移动动画
+     */
     public void Charachter() {
-        if (Input.GetKeyDown(KeyCode.W)) //向前
-        {
-            Anim.SetBool("walk", true);
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            Anim.SetBool("walk", false);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Anim.SetBool("left", true);
-        }
-        if (Input.GetKeyUp(KeyCode.A))//向左走
-        {
-            Anim.SetBool("left", false);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Anim.SetBool("right", true);
-        }
-        if (Input.GetKeyUp(KeyCode.D))//向右走
-        {
-            Anim.SetBool("right", false);
-        }
+        //判断我keyDown的按键
+        bool isWalking = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
+        //触发动画
+        Anim.SetBool("walk", isWalking);
     }
 }
