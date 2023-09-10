@@ -29,9 +29,7 @@ public class Player : MonoBehaviour
         float h = Input.GetAxis("Horizontal") * Time.deltaTime *3;
         float v = Input.GetAxis("Vertical") * Time.deltaTime * 3;
         Vector3 move = new Vector3(h, 0, v);    //获取坐标系
-        //Vector3 to = transform.position + move;    //要看向的目标点
-        //transform.LookAt(to);   //player转动方向
-        //transform.position += move * speed * Time.deltaTime;    //player移动
+        
     }
     /**
      * 角色的移动动画
@@ -44,7 +42,9 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //获取终点方向Y轴数据
         float playerCamera = mainCamera.transform.rotation.eulerAngles.y;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, playerCamera, 0), turnSpeed);
+        //球形差值（起始方向,终点方向,速度）
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, playerCamera, 0), turnSpeed *Time.fixedDeltaTime);
     }
 }
