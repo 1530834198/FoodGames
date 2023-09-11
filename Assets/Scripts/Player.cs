@@ -5,9 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Animator Anim;
-    private int speed = 3;
+    private int speed = 3;  //人物移动速度
     Camera mainCamera;
-    public float turnSpeed=5;
+    public float turnSpeed=5; //人物转向速度
     // Start is called before the first frame update
     void Awake()
     {
