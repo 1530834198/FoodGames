@@ -23,13 +23,16 @@ public class fm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public void SatrtGame()
+    /**
+     * 开始游戏
+     */
+    public void OnSatrtGame()
     {
         SceneManager.LoadScene(1);
     }
-    
+
     /**
      * bgm静音
      */
@@ -45,7 +48,7 @@ public class fm : MonoBehaviour
             bgm.GetComponent<AudioSource>().Pause();
         }
     }
-    
+
     /**
      * 关闭音量设置panel
      */
@@ -53,7 +56,7 @@ public class fm : MonoBehaviour
     {
         bgmPanel.SetActive(false);
     }
-    
+
     /**
      * 开启音量设置panel
      */
@@ -61,7 +64,7 @@ public class fm : MonoBehaviour
     {
         bgmPanel.SetActive(true);
     }
-    
+
     /**
      * 音量控制
      */
@@ -69,4 +72,16 @@ public class fm : MonoBehaviour
     {
         bgm.GetComponent<AudioSource>().volume = value;
     }
+    /**
+     * 退出游戏
+     */
+    public void OnExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;//unity调试时使用
+#else
+            Application.Quit();//打包后使用
+#endif
+    }
+
 }
