@@ -18,6 +18,7 @@ public class fm : MonoBehaviour
         {
             bgm = Instantiate(bgmprefab);
         }
+        bgm.GetComponent<AudioSource>().volume = 0.5f;
     }
 
     // Update is called once per frame
