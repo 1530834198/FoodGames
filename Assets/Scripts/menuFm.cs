@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class fm : MonoBehaviour
+public class menuFm : MonoBehaviour
 {
     public GameObject bgm;
     public GameObject bgmprefab;

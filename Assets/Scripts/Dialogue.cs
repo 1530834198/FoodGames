@@ -1,40 +1,35 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor.UI;
+using UnityEngine;s
 
 public class Dialogue : MonoBehaviour
 {
-    public GameObject player;
-
-    public GameObject dialogueUI;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject button;
+    public GameObject talkUI;
+    
+    // void Start()
+    // {
+    //     
+    // }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
+        {
+            button.SetActive(false);
+            talkUI.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("123");
-            dialogueUI.SetActive(true);
-        }
+        button.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            dialogueUI.SetActive(false);
-        }
+        button.SetActive(false);
     }
 }
