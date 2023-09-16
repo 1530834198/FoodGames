@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;s
+using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
