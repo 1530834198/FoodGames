@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dialogue : MonoBehaviour
+public class talkButton : MonoBehaviour
 {
     public GameObject button;
     public GameObject talkUI;
