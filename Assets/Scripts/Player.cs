@@ -21,6 +21,9 @@ namespace Cinemachine.Examples
         private Camera mainCamera;//主摄像机的引用
         private float velocity;//平滑地处理角色的速度变化
 
+        public GameObject myBag;//背包
+        bool isOpen;
+
 
         // Use this for initialization
         void Start()
@@ -28,15 +31,19 @@ namespace Cinemachine.Examples
             anim = GetComponent<Animator>();
             mainCamera = Camera.main;
             //鼠标隐藏
-            Cursor.visible = false;
+            //Cursor.visible = false;
             //鼠标锁定
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
 
         // Update is called once per frame
         /**
          * 角色的移动和旋转，计算速度并更新动画参数
          */
+        private void Update()
+        {
+            OpenMyBag();
+        }
         void FixedUpdate()
         {
             input.x = Input.GetAxis("Horizontal");
@@ -103,6 +110,14 @@ namespace Cinemachine.Examples
                 //get the right-facing direction of the referenceTransform
                 var right = transform.TransformDirection(Vector3.right);
                 targetDirection = input.x * right + Mathf.Abs(input.y) * forward;
+            }
+        }
+        void OpenMyBag()
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                isOpen = !isOpen;
+                myBag.SetActive(isOpen);
             }
         }
     }
