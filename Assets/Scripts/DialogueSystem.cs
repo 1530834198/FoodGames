@@ -41,11 +41,11 @@ public class DialogueSystem : MonoBehaviour
         {
             textPanel.SetActive(false);
             index = 0;
-            return;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && textFinished)
         {
+            Debug.Log(index);
             StartCoroutine(SetTextUI());
         }
     }
@@ -72,6 +72,7 @@ public class DialogueSystem : MonoBehaviour
     {
         textFinished = false;
         textLable.text = "";
+        
 
         //判断当前是谁的对话，并且切换头像
         switch (textList[index].Trim())
