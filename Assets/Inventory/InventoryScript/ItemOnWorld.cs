@@ -23,11 +23,14 @@ public class ItemOnWorld : MonoBehaviour
         if (!playerInventory.itemsList.Contains(thisItem))
         {
             playerInventory.itemsList.Add(thisItem);
+            Debug.Log("456");
+            InventoryManager.CreateNewItem(thisItem);
         }
         // else
         // {
         //     //如果在就增加数量
         //     thisItem.itemHeld += 1;
         // }
+        // InventoryManager.RefreshItem();
     }
 }
