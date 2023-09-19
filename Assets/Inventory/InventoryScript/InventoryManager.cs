@@ -44,7 +44,6 @@ public class InventoryManager : MonoBehaviour
         Slot newItem = Instantiate(instance.slotPrefab,instance.slotGrid.transform.position,Quaternion.identity);
         //设置父类，把物品挂到Grid下面成为子集
         newItem.gameObject.transform.SetParent(instance.slotGrid.transform);
-        Debug.Log("123");
         newItem.slotItem = item;
         newItem.slotImage.sprite = item.itemImage;//传输图片
     }

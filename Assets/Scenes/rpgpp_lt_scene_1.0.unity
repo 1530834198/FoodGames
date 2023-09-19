@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 66438491}
   - component: {fileID: 66438495}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2556,6 +2556,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4252784401376168, guid: 22a3fd8d3e59a1149bdcd775c0e87241, type: 3}
   m_PrefabInstance: {fileID: 223226636}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &229174500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6792327054025522797, guid: 64db8d48fab1ceb43a8ee5d52643029a, type: 3}
+  m_PrefabInstance: {fileID: 2038249766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &229174501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229174500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5bfd7a016cde3b4281b1b9a0aa51b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textLable: {fileID: 918546409}
+  FaceImage: {fileID: 1866334609}
+  textPanel: {fileID: 1503326412}
+  textFile: {fileID: 4900000, guid: 467fdb318cd9e25429c183a6a842d869, type: 3}
+  player: {fileID: 21300000, guid: 4bf08de982e2b32409c580f53f04fcca, type: 3}
+  Npc: {fileID: 21300000, guid: 792dde074925d88439f3e62e7313f69b, type: 3}
+--- !u!65 &229174502
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229174500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6553497, y: 2, z: 2.6010132}
+  m_Center: {x: -0.26544952, y: 0, z: -0.054244995}
+--- !u!114 &229174504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229174500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b1be9ad8b005040ba72c61a43cb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1108169758}
+  talkUI: {fileID: 1503326412}
 --- !u!1001 &230290536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5350,7 +5400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522811750}
   m_LocalRotation: {x: 0.04825978, y: -0.19303736, z: 0.0095064705, w: 0.97995776}
-  m_LocalPosition: {x: 95.49962, y: 25.243956, z: 66.388794}
+  m_LocalPosition: {x: 71.50962, y: 25.243956, z: 34.18879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8977,7 +9027,7 @@ GameObject:
   - component: {fileID: 880072176}
   - component: {fileID: 880072175}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: xin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9008,7 +9058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4cb7550ec6c34e41b5ce4f5f5d5bc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisItem: {fileID: 11400000, guid: a95b038db7309fd44a0688cd65e11564, type: 2}
+  thisItem: {fileID: 11400000, guid: ddab3085a3b594f4293b40ac75ed3bef, type: 2}
   playerInventory: {fileID: 11400000, guid: 01424942c89d7554da7672fe6852b9e5, type: 2}
 --- !u!23 &880072177
 MeshRenderer:
@@ -18109,7 +18159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626268756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 95.49962, y: 25.243956, z: 66.388794}
+  m_LocalPosition: {x: 71.50962, y: 25.243956, z: 34.18879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1796392517}
@@ -19188,7 +19238,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7019920669011962644, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 94.49
+      value: 70.5
       objectReference: {fileID: 0}
     - target: {fileID: 7019920669011962644, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19196,7 +19246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7019920669011962644, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 68.8
+      value: 36.6
       objectReference: {fileID: 0}
     - target: {fileID: 7019920669011962644, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
       propertyPath: m_LocalRotation.x
@@ -19248,7 +19298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7647134206250791342, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
       propertyPath: m_Name
-      value: FemaleCharacterPBR
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7647134206250791342, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
       propertyPath: m_TagString
@@ -20028,7 +20078,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796392515}
-  m_LocalRotation: {x: 0.08601617, y: -0.19252713, z: 0.016943928, w: 0.97736764}
+  m_LocalRotation: {x: 0.086016156, y: -0.19252713, z: 0.016943926, w: 0.97736764}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -20674,8 +20724,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35.1, y: 6.3207}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -36.413, y: 11.87}
+  m_SizeDelta: {x: 86.96695, y: 86.96695}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1868782965
 PrefabInstance:
@@ -22430,7 +22480,7 @@ GameObject:
   - component: {fileID: 2008655724}
   - component: {fileID: 2008655730}
   m_Layer: 0
-  m_Name: robot1
+  m_Name: guide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22555,8 +22605,8 @@ MonoBehaviour:
   textLable: {fileID: 918546409}
   FaceImage: {fileID: 1866334609}
   textPanel: {fileID: 1503326412}
-  textFile: {fileID: 4900000, guid: 339d3f0bd79d73f4cab976c4bde493d3, type: 3}
-  player: {fileID: 21300000, guid: 9cad92999ddfa304495b735a55c78329, type: 3}
+  textFile: {fileID: 4900000, guid: 040d808fdaff07f488b74f389c7a751f, type: 3}
+  player: {fileID: 21300000, guid: 4bf08de982e2b32409c580f53f04fcca, type: 3}
   Npc: {fileID: 21300000, guid: cbaeed03e5416aa4bae23110b63a0c7d, type: 3}
 --- !u!4 &2020700659 stripped
 Transform:
@@ -22825,7 +22875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6792327054025522797, guid: 64db8d48fab1ceb43a8ee5d52643029a, type: 3}
       propertyPath: m_Name
-      value: Peasant Nolant Blue(Free Version)
+      value: Npc Kun
       objectReference: {fileID: 0}
     - target: {fileID: 6792327054025522797, guid: 64db8d48fab1ceb43a8ee5d52643029a, type: 3}
       propertyPath: m_StaticEditorFlags
