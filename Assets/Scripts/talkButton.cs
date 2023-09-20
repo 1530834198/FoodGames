@@ -7,13 +7,7 @@ public class talkButton : MonoBehaviour
 {
     public GameObject button;
     public GameObject talkUI;
-    
-    // void Start()
-    // {
-    //     
-    // }
 
-    // Update is called once per frame
     void Update()
     {
         if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
@@ -23,12 +17,12 @@ public class talkButton : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         button.SetActive(true);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision other)
     {
         button.SetActive(false);
     }
