@@ -22,6 +22,7 @@ namespace Cinemachine.Examples
         private float velocity;//平滑地处理角色的速度变化
 
         public GameObject myBag;//背包
+        public GameObject fk;
         bool isOpen;
 
 
@@ -31,9 +32,9 @@ namespace Cinemachine.Examples
             anim = GetComponent<Animator>();
             mainCamera = Camera.main;
             //鼠标隐藏
-            //Cursor.visible = false;
+            Cursor.visible = false;
             //鼠标锁定
-            //Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         // Update is called once per frame
@@ -118,6 +119,9 @@ namespace Cinemachine.Examples
             {
                 isOpen = !isOpen;
                 myBag.SetActive(isOpen);
+                fk.SetActive(!isOpen);
+                Cursor.visible = isOpen;
+                Cursor.lockState = CursorLockMode.Confined;
             }
         }
     }
