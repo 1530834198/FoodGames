@@ -22,9 +22,10 @@ namespace Cinemachine.Examples
         private float velocity;//平滑地处理角色的速度变化
 
         public GameObject myBag;//背包
-        public GameObject fk;
+        public GameObject fk;//第三人称视角
+        
         bool isOpen;
-
+        
 
         // Use this for initialization
         void Start()
@@ -44,6 +45,7 @@ namespace Cinemachine.Examples
         private void Update()
         {
             OpenMyBag();
+            
         }
         void FixedUpdate()
         {
@@ -115,7 +117,7 @@ namespace Cinemachine.Examples
         }
         void OpenMyBag()
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.B) )
             {
                 isOpen = !isOpen;
                 myBag.SetActive(isOpen);
@@ -124,6 +126,7 @@ namespace Cinemachine.Examples
                 Cursor.lockState = CursorLockMode.Confined;
             }
         }
+       
     }
 
 }
