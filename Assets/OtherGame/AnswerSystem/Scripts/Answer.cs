@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Answer : MonoBehaviour
@@ -28,6 +29,8 @@ public class Answer : MonoBehaviour
 
     void Awake()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         TextCsv();
         LoadAnswer();
     }
@@ -125,6 +128,7 @@ public class Answer : MonoBehaviour
                 else
                 {
                     tipsText.text = "<color=#27FF02FF>" + "哎呀！已经是最后一题了。" + "</color>";
+                    // SceneManager.LoadScene(1);
                 }
                 break;
         }

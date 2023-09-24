@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Cinemachine.Examples
 {
@@ -24,7 +25,8 @@ namespace Cinemachine.Examples
         public GameObject myBag;//背包
         public GameObject fk;//第三人称视角
         
-        bool isOpen;
+        private bool isOpen;//判断背包是否打开
+        public Inventory playerInventory;//背包
         
 
         // Use this for initialization
@@ -45,7 +47,6 @@ namespace Cinemachine.Examples
         private void Update()
         {
             OpenMyBag();
-            
         }
         void FixedUpdate()
         {
@@ -117,7 +118,7 @@ namespace Cinemachine.Examples
         }
         void OpenMyBag()
         {
-            if (Input.GetKeyDown(KeyCode.B) )
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 isOpen = !isOpen;
                 myBag.SetActive(isOpen);
@@ -126,7 +127,22 @@ namespace Cinemachine.Examples
                 Cursor.lockState = CursorLockMode.Confined;
             }
         }
-       
+
+        void SaveByPlayerPrefs()
+        {
+            PlayerPrefs.SetFloat("PlayerPositionX",transform.position.x);
+            PlayerPrefs.SetFloat("PlayerPositionY",transform.position.y);
+            PlayerPrefs.SetFloat("PlayerPositionZ",transform.position.z);
+            PlayerPrefs.Save();
+        }
+
+        void LoadByPlayerPrefs()
+        {
+            transform.position = new Vector3(
+                PlayerPrefs.GetFloat("PlayerPositionX",0f),
+                PlayerPrefs.GetFloat("PlayerPositionY",0f),
+                PlayerPrefs.GetFloat("PlayerPositionZ",0f));
+        }
     }
 
 }

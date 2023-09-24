@@ -23,7 +23,7 @@ public class ItemOnWorld : MonoBehaviour
         if (!playerInventory.itemsList.Contains(thisItem))
         {
             playerInventory.itemsList.Add(thisItem);
-            Debug.Log("456");
+            // Debug.Log("456");
             InventoryManager.CreateNewItem(thisItem);
         }
         // else
@@ -32,5 +32,16 @@ public class ItemOnWorld : MonoBehaviour
         //     thisItem.itemHeld += 1;
         // }
         // InventoryManager.RefreshItem();
+    }
+    
+    public void AddNewItem(Item item)
+    {
+        //如果物品不在背包里面，就增加进去
+        if (!playerInventory.itemsList.Contains(item))
+        {
+            playerInventory.itemsList.Add(item);
+            // Debug.Log("456");
+            InventoryManager.CreateNewItem(item);
+        }
     }
 }

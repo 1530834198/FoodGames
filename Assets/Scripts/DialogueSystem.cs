@@ -47,12 +47,12 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    void GetTextFormFile(string text)
+    void GetTextFormFile(TextAsset file)
     {
         textList.Clear();//置空
         index = 0;
         //分割每一行的数据存入集合
-        var lineDate = text.Split('\n');
+        var lineDate = file.text.Split('\n');
         foreach (var line in lineDate)
         {
             textList.Add(line);
@@ -63,12 +63,9 @@ public class DialogueSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !hasCollided)
         {
-            string path = Application.dataPath+"\\File\\"+name+"_dialogue.txt";
-            path=path.Replace("/","\\");
-            //直接以文本的方式读取
-            string content=File.ReadAllText(path);
-            //文本加入List
-            GetTextFormFile(content);
+            //获取当前对象的TextFile
+            TextAsset textAsset = gameObject.GetComponent<DialogueSystem>().textFile;
+            GetTextFormFile(textAsset);
         }
         hasCollided = true;
     }

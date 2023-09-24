@@ -5817,7 +5817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522811750}
   m_LocalRotation: {x: 0.04825978, y: -0.19303736, z: 0.0095064705, w: 0.97995776}
-  m_LocalPosition: {x: 98.46962, y: 25.243956, z: 65.33879}
+  m_LocalPosition: {x: 144.70961, y: 22.913956, z: -61.511208}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15382,6 +15382,7 @@ MonoBehaviour:
   turnSpeed: 10
   myBag: {fileID: 1703299537}
   fk: {fileID: 1626268756}
+  playerInventory: {fileID: 11400000, guid: 01424942c89d7554da7672fe6852b9e5, type: 2}
 --- !u!4 &1392169895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7019920669011962644, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
@@ -17371,6 +17372,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488364200}
   m_CullTransparentMesh: 0
+--- !u!1 &1489386189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1675586943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1489386190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489386189}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3635278, y: 2.2089167, z: 1.9489051}
+  m_Center: {x: 0.1051386, y: 0.25091583, z: 0.117384255}
+--- !u!114 &1489386191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489386189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b1be9ad8b005040ba72c61a43cb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1108169758}
+  talkUI: {fileID: 1503326412}
+--- !u!114 &1489386194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489386189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2e5a1b7132ab34785dac514f1cbd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 26d3143f91f6d9944975f9d722ca845c, type: 2}
 --- !u!1 &1495717716
 GameObject:
   m_ObjectHideFlags: 0
@@ -19136,7 +19183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626268756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 98.46962, y: 25.243956, z: 65.33879}
+  m_LocalPosition: {x: 144.70961, y: 22.913956, z: -61.511208}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1796392517}
@@ -19543,6 +19590,10 @@ PrefabInstance:
     - target: {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_rock_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d, type: 3}
+      propertyPath: m_TagString
+      value: haili
       objectReference: {fileID: 0}
     - target: {fileID: 4372973593729692, guid: 491dc122236ad9749a046177ea69736d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20321,17 +20372,17 @@ PrefabInstance:
     - target: {fileID: 7019920669011962644, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 97.46
+      value: 143.7
       objectReference: {fileID: 0}
     - target: {fileID: 7019920669011962644, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.62
+      value: 21.29
       objectReference: {fileID: 0}
     - target: {fileID: 7019920669011962644, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 67.75
+      value: -59.1
       objectReference: {fileID: 0}
     - target: {fileID: 7019920669011962644, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
         type: 3}
@@ -21365,7 +21416,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796392515}
-  m_LocalRotation: {x: 0.086016186, y: -0.19252713, z: 0.016943933, w: 0.97736764}
+  m_LocalRotation: {x: 0.086016156, y: -0.19252713, z: 0.016943926, w: 0.97736764}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -23985,7 +24036,7 @@ GameObject:
   - component: {fileID: 2008655724}
   m_Layer: 0
   m_Name: guide
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24519,6 +24570,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 6792327054025522797, guid: 64db8d48fab1ceb43a8ee5d52643029a,
+        type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     - target: {fileID: 7060605132943402213, guid: 64db8d48fab1ceb43a8ee5d52643029a,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -24674,7 +24730,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: NpcSeaside
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 466174982370493815, guid: 7577e3de9babd604d9880ded032d1752,
+        type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 466174982370493813, guid: 7577e3de9babd604d9880ded032d1752, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7577e3de9babd604d9880ded032d1752, type: 3}
 --- !u!1 &2051211821 stripped
 GameObject:
@@ -24696,6 +24758,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1108169758}
   talkUI: {fileID: 1503326412}
+--- !u!114 &2051211823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051211821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5bfd7a016cde3b4281b1b9a0aa51b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textLable: {fileID: 918546409}
+  FaceImage: {fileID: 1866334609}
+  textPanel: {fileID: 1503326412}
+  textFile: {fileID: 4900000, guid: 703240a1a65ced548b99ec74a3663f42, type: 3}
+  textList: []
+  player: {fileID: 21300000, guid: 4bf08de982e2b32409c580f53f04fcca, type: 3}
+  Npc: {fileID: 21300000, guid: 792dde074925d88439f3e62e7313f69b, type: 3}
 --- !u!4 &2052987761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4943765590059028, guid: e7489574cca6d4645a7019414b8288e8,

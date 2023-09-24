@@ -9,6 +9,8 @@ TagManager:
   - menuBgm
   - Chicken
   - Pig
+  - NPC
+  - haili
   layers:
   - Default
   - TransparentFX
