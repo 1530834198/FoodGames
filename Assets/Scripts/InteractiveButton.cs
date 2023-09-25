@@ -11,7 +11,7 @@ public class InteractiveButton : MonoBehaviour
     public GameObject button;
     public GameObject talkUI;
     private bool isNpc;
-    private string goods = "";
+    // private string goods = "";
 
     void Update()
     {
@@ -23,20 +23,20 @@ public class InteractiveButton : MonoBehaviour
                 button.SetActive(false);
                 talkUI.SetActive(true);
             }
-            else
-            {
-                switch (goods)
-                {
-                    case "haili":
-                        // PlayerPrefs.SetFloat("PlayerPositionX",transform.position.x);
-                        // PlayerPrefs.SetFloat("PlayerPositionY",transform.position.y);
-                        // PlayerPrefs.SetFloat("PlayerPositionZ",transform.position.z);
-                        // PlayerPrefs.Save();
-                        // DontDestroyOnLoad(GameObject.FindWithTag("Player"));
-                        // SceneManager.LoadScene(2);
-                        break;
-                }
-            }
+            // else
+            // {
+            //     switch (goods)
+            //     {
+            //         case "haili":
+            //             // PlayerPrefs.SetFloat("PlayerPositionX",transform.position.x);
+            //             // PlayerPrefs.SetFloat("PlayerPositionY",transform.position.y);
+            //             // PlayerPrefs.SetFloat("PlayerPositionZ",transform.position.z);
+            //             // PlayerPrefs.Save();
+            //             // DontDestroyOnLoad(GameObject.FindWithTag("Player"));
+            //             // SceneManager.LoadScene(2);
+            //             break;
+            //     }
+            // }
         }
         
     }
@@ -46,7 +46,7 @@ public class InteractiveButton : MonoBehaviour
         //判断碰撞是是否是NPC
         isNpc = gameObject.CompareTag("NPC");
         button.SetActive(true);
-        goods = gameObject.tag;
+        // goods = gameObject.tag;
     }
 
     private void OnCollisionExit(Collision other)
