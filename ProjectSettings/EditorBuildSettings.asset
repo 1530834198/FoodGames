@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/OtherGame/AnswerSystem/Scenes/AnswerTest.unity
     guid: f63d4058c71de61469b7b4a13267d9ff
+  - enabled: 1
+    path: Assets/OtherGame/pintu/pintuGame.unity
+    guid: be0395e00e981464398a7285daf30bd2
   m_configObjects: {}

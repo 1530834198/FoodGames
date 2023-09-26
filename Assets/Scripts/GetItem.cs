@@ -18,7 +18,7 @@ public class GetItem : MonoBehaviour
     public GameObject itemAudio;//获得物品时的声音
     
     private float startTime;//开始显示时间
-    private int coldTime = 2;//显示时间
+    private int coldTime = 3;//显示时间
     private bool isFill;//是否开始显示
     private GameObject itembgm;
 

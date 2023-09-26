@@ -116,7 +116,7 @@ namespace Cinemachine.Examples
                 targetDirection = input.x * right + Mathf.Abs(input.y) * forward;
             }
         }
-        void OpenMyBag()
+         void OpenMyBag()
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
@@ -127,6 +127,15 @@ namespace Cinemachine.Examples
                 Cursor.lockState = CursorLockMode.Confined;
             }
         }
+        public void CloseBtn()
+        {
+            isOpen = !isOpen;
+            myBag.SetActive(isOpen);
+            fk.SetActive(!isOpen);
+            Cursor.visible = isOpen;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+
 
         void SaveByPlayerPrefs()
         {

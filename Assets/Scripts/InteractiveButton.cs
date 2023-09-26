@@ -8,9 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class InteractiveButton : MonoBehaviour
 {
+    public GameObject mybag;
     public GameObject button;
     public GameObject talkUI;
     private bool isNpc;
+    
     // private string goods = "";
 
     void Update()
@@ -53,5 +55,9 @@ public class InteractiveButton : MonoBehaviour
     {
         isNpc = false;
         button.SetActive(false);
+    }
+    public void CloseMyBag(bool isOpen)
+    {
+        
     }
 }
