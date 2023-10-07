@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class InteractiveButton : MonoBehaviour
 {
-    // public GameObject mybag;
     public GameObject button;
     public GameObject talkUI;
     private bool isNpc;
@@ -31,18 +30,17 @@ public class InteractiveButton : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //判断碰撞是是否是NPC
-        isNpc = gameObject.CompareTag("NPC");
-        button.SetActive(true);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //判断碰撞是是否是NPC
+            isNpc = gameObject.CompareTag("NPC");
+            button.SetActive(true);
+        }
     }
 
     private void OnCollisionExit(Collision other)
     {
         isNpc = false;
         button.SetActive(false);
-    }
-    public void CloseMyBag(bool isOpen)
-    {
-        
     }
 }
