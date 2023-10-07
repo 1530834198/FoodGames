@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Cinemachine.Examples
 {
@@ -32,6 +33,7 @@ namespace Cinemachine.Examples
         // Use this for initialization
         void Start()
         {
+            LoadByPlayerPrefs();
             anim = GetComponent<Animator>();
             mainCamera = Camera.main;
             //鼠标隐藏
@@ -47,6 +49,7 @@ namespace Cinemachine.Examples
         private void Update()
         {
             OpenMyBag();
+            test();
         }
         void FixedUpdate()
         {
@@ -139,18 +142,48 @@ namespace Cinemachine.Examples
 
         void SaveByPlayerPrefs()
         {
-            PlayerPrefs.SetFloat("PlayerPositionX",transform.position.x);
-            PlayerPrefs.SetFloat("PlayerPositionY",transform.position.y);
-            PlayerPrefs.SetFloat("PlayerPositionZ",transform.position.z);
+            PlayerPrefs.SetFloat("PlayerPosX", transform.position.x);
+            PlayerPrefs.SetFloat("PlayerPosY", transform.position.y);
+            PlayerPrefs.SetFloat("PlayerPosZ", transform.position.z);
             PlayerPrefs.Save();
         }
 
         void LoadByPlayerPrefs()
         {
-            transform.position = new Vector3(
-                PlayerPrefs.GetFloat("PlayerPositionX",0f),
-                PlayerPrefs.GetFloat("PlayerPositionY",0f),
-                PlayerPrefs.GetFloat("PlayerPositionZ",0f));
+            float playerPosX = PlayerPrefs.GetFloat("PlayerPosX", 0f);
+            float playerPosY = PlayerPrefs.GetFloat("PlayerPosY", 0f);
+            float playerPosZ = PlayerPrefs.GetFloat("PlayerPosZ", 0f);
+
+            // 创建或查找人物对象
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            if (player != null)
+            {
+                // 如果没有保存的位置数据，使用默认位置
+                if (playerPosX == 0f && playerPosY == 0f && playerPosZ == 0f)
+                {
+                    // 设置默认位置，例如(0, 0, 0)
+                    Vector3 defaultPosition = new Vector3(143.7f, 21.29f, -59.1f);
+                    player.transform.position = defaultPosition;
+                }
+                else
+                {
+                    // 恢复保存的位置
+                    player.transform.position = new Vector3(playerPosX, playerPosY, playerPosZ);
+                }
+            }
+        }
+        void test()
+        {
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
+                SaveByPlayerPrefs();
+                
+                SceneManager.LoadScene(3);
+                
+            }
         }
     }
 

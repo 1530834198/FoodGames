@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class pintu : MonoBehaviour
 {
@@ -109,6 +110,7 @@ public class pintu : MonoBehaviour
             }
         }
         check();
+        test1();
     }
     // 返回射线碰撞信息
     private RaycastHit CastRay()
@@ -157,5 +159,29 @@ public class pintu : MonoBehaviour
             Debug.Log("完成");
         }
 
+    }
+    void LoadByPlayerPrefs()
+    {
+        float playerPosX = PlayerPrefs.GetFloat("PlayerPosX", 0f);
+        float playerPosY = PlayerPrefs.GetFloat("PlayerPosY", 0f);
+        float playerPosZ = PlayerPrefs.GetFloat("PlayerPosZ", 0f);
+
+        // 创建或查找人物对象
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            // 恢复人物位置
+            player.transform.position = new Vector3(playerPosX, playerPosY, playerPosZ);
+        }
+    }
+    void test1()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            SceneManager.LoadScene(1);
+            //LoadByPlayerPrefs();
+            //Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }
