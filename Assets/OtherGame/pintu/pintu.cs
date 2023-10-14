@@ -7,7 +7,6 @@ public class pintu : MonoBehaviour
 {
     //记录有没有拼图被选中
     private GameObject selectedObject;
-
     // 拼图预制体
     GameObject[] dragObj;
     // 记录拼图应该放的点
@@ -16,6 +15,7 @@ public class pintu : MonoBehaviour
     void Start()
     {
         dragObj = GameObject.FindGameObjectsWithTag("drag");
+
         dropObj = GameObject.FindGameObjectsWithTag("drop");
 
         foreach (var item in dragObj)
@@ -58,31 +58,6 @@ public class pintu : MonoBehaviour
                 Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(selectedObject.transform.position).z);
                 Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
 
-                #region  吸附
-                //遍历每个放置点，找到和鼠标点击最近的点
-                Vector3 tmpdrop = Vector3.zero;
-                float minDistance = 10.0f;
-                foreach (var item in dropObj)
-                {
-                    if (Vector3.Distance(item.transform.position, worldPosition) <= minDistance)
-                    {
-                        minDistance = Vector3.Distance(item.transform.position, worldPosition);
-                        tmpdrop = item.transform.position;
-                    }
-                }
-                // 如果最小距离小于---限定值，说明在拼图位置上，就赋值，否则就是鼠标位置
-                if (minDistance < 0.4f)
-                {
-                    // 赋值
-                    selectedObject.transform.position = tmpdrop + new Vector3(0, 0.05f, 0);
-
-                }
-                else
-                {
-                    selectedObject.transform.position = worldPosition;
-                }
-                #endregion
-                //selectedObject.transform.position = worldPosition;
                 selectedObject = null;
                 Cursor.visible = true;
             }
@@ -110,7 +85,7 @@ public class pintu : MonoBehaviour
             }
         }
         check();
-        test1();
+        
     }
     // 返回射线碰撞信息
     private RaycastHit CastRay()
@@ -154,34 +129,12 @@ public class pintu : MonoBehaviour
             }
         }
 
-        if (isDone)
+        if (isDone)//完成
         {
             Debug.Log("完成");
-        }
-
-    }
-    void LoadByPlayerPrefs()
-    {
-        float playerPosX = PlayerPrefs.GetFloat("PlayerPosX", 0f);
-        float playerPosY = PlayerPrefs.GetFloat("PlayerPosY", 0f);
-        float playerPosZ = PlayerPrefs.GetFloat("PlayerPosZ", 0f);
-
-        // 创建或查找人物对象
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player != null)
-        {
-            // 恢复人物位置
-            player.transform.position = new Vector3(playerPosX, playerPosY, playerPosZ);
-        }
-    }
-    void test1()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
             SceneManager.LoadScene(1);
-            //LoadByPlayerPrefs();
-            //Cursor.lockState = CursorLockMode.Locked;
         }
+
     }
+
 }

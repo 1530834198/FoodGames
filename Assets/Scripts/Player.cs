@@ -139,7 +139,9 @@ namespace Cinemachine.Examples
             Cursor.lockState = CursorLockMode.Confined;
         }
 
-
+        /**
+         * 储存player的位置
+         */
         void SaveByPlayerPrefs()
         {
             PlayerPrefs.SetFloat("PlayerPosX", transform.position.x);
@@ -147,7 +149,9 @@ namespace Cinemachine.Examples
             PlayerPrefs.SetFloat("PlayerPosZ", transform.position.z);
             PlayerPrefs.Save();
         }
-
+        /**
+         * 加载player的位置
+         */
         void LoadByPlayerPrefs()
         {
             float playerPosX = PlayerPrefs.GetFloat("PlayerPosX", 0f);
