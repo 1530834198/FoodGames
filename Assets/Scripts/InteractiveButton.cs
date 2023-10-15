@@ -11,8 +11,6 @@ public class InteractiveButton : MonoBehaviour
     public GameObject button;
     public GameObject talkUI;
     private bool isNpc;
-    
-    // private string goods = "";
 
     void Update()
     {

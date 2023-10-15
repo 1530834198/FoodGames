@@ -11,7 +11,8 @@ public class ChickenTest : MonoBehaviour
     {
         if (isFlag && Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(2);
+            // SceneManager.LoadScene(2);
+            
         }
     }
 
@@ -27,4 +28,5 @@ public class ChickenTest : MonoBehaviour
     {
         isFlag = false;
     }
+    
 }

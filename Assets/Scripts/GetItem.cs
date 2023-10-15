@@ -10,6 +10,8 @@ public class GetItem : MonoBehaviour
     public Item item;//物品
 
     private bool isFlag;//是否碰撞
+    private bool isTrigger;//是否接触，拾取
+    public int isTriOrCon;
 
     private Inventory playerInventory;//背包
     public Image itemImage;//物品图片
@@ -18,14 +20,14 @@ public class GetItem : MonoBehaviour
     public GameObject itemAudio;//获得物品时的声音
     
     private float startTime;//开始显示时间
-    private int coldTime = 3;//显示时间
+    private int coldTime = 2;//显示时间
     private bool isFill;//是否开始显示
     private GameObject itembgm;
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && isFlag)
+        if (isTrigger || (Input.GetKeyDown(KeyCode.F) && isFlag))
         { 
             if (!playerInventory.itemsList.Contains(item))
             {
@@ -42,10 +44,12 @@ public class GetItem : MonoBehaviour
         if (isFill)
         {
             startTime += Time.deltaTime;
-            if (startTime < coldTime)
+            if (startTime <= coldTime)
             {
                 //显示获得的物品
                 itemPanel.SetActive(true);
+                //接触改为false
+                isTrigger = false;
             }
             else
             {
@@ -53,8 +57,13 @@ public class GetItem : MonoBehaviour
                 startTime = 0;
                 itemPanel.SetActive(false);
                 Destroy(itembgm);
+                if (isTriOrCon == 1)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -69,5 +78,19 @@ public class GetItem : MonoBehaviour
     private void OnCollisionExit(Collision other)
     {
         isFlag = false;
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            isTrigger = true;
+            playerInventory = collider.gameObject.GetComponent<Player>().playerInventory;
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        isTrigger = false;
     }
 }
