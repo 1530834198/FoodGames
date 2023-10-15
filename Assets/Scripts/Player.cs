@@ -33,7 +33,7 @@ namespace Cinemachine.Examples
         // Use this for initialization
         void Start()
         {
-            LoadByPlayerPrefs();
+            // LoadByPlayerPrefs();
             anim = GetComponent<Animator>();
             mainCamera = Camera.main;
             //鼠标隐藏

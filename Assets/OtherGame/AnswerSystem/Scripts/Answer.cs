@@ -128,10 +128,10 @@ public class Answer : MonoBehaviour
                 else
                 {
                     tipsText.text = "<color=#27FF02FF>" + "哎呀！已经是最后一题了。" + "</color>";
-                    if (((float)isRightNum / anserint * 100).ToString("f2").Equals("100"))
-                    {
-                        SceneManager.LoadScene(1);
-                    }
+                    // if (((float)isRightNum / anserint * 100).ToString("f2").Equals("100"))
+                    // {
+                    //     SceneManager.LoadScene(1);
+                    // }
                 }
                 break;
         }
