@@ -16,7 +16,6 @@ public class DialogueSystem : MonoBehaviour
 
     private bool hasCollided = false;//判断是否碰撞
     private int index;
-    // public bool isOverTalk = false;
     [Header("头像")]public Sprite player, Npc;//角色头像
 
     void Update()
@@ -24,7 +23,6 @@ public class DialogueSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && index == textList.Count && textList.Count != 0)
         {
             textPanel.SetActive(false);
-            // isOverTalk = true;
             index = 0;
             hasCollided = false;
         }
@@ -53,7 +51,6 @@ public class DialogueSystem : MonoBehaviour
     {
         textList.Clear();//置空
         index = 0;
-        // isOverTalk = false;
         //分割每一行的数据存入集合
         var lineDate = file.text.Split('\n');
         foreach (var line in lineDate)

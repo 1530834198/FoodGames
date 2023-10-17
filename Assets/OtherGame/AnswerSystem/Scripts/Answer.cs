@@ -26,6 +26,8 @@ public class Answer : MonoBehaviour
     public Text TextAccuracy;//正确率
     private int anserint = 0;//已经答过几题
     private int isRightNum = 0;//正确题数
+    public Text Accuracy;
+    public GameObject Npc02;
 
     void Awake()
     {
@@ -128,10 +130,13 @@ public class Answer : MonoBehaviour
                 else
                 {
                     tipsText.text = "<color=#27FF02FF>" + "哎呀！已经是最后一题了。" + "</color>";
-                    // if (((float)isRightNum / anserint * 100).ToString("f2").Equals("100"))
-                    // {
-                    //     SceneManager.LoadScene(1);
-                    // }
+                    // Accuracy = TextAccuracy;
+                    Npc02.GetComponent<Npc02>().setAccuracy(TextAccuracy.text);
+                    gameObject.SetActive(false);
+                    //鼠标隐藏
+                    Cursor.visible = false;
+                    //鼠标锁定
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
                 break;
         }
@@ -182,4 +187,9 @@ public class Answer : MonoBehaviour
             }
         }
     }
+
+    // public string getAccuracy()
+    // {
+    //     return Accuracy.text;
+    // }
 }

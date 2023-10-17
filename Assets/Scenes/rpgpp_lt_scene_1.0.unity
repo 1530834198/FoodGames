@@ -14640,7 +14640,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125762962}
-  m_LocalRotation: {x: 0.029725496, y: -0.19318257, z: 0.005855488, w: 0.98069495}
+  m_LocalRotation: {x: 0.029725492, y: -0.19318257, z: 0.005855487, w: 0.98069495}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16937,7 +16937,7 @@ PrefabInstance:
     - target: {fileID: 3332756950553193982, guid: 4f9803ed31b25c049b47eaf15bcb0c32,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 96.77
+      value: 90.98
       objectReference: {fileID: 0}
     - target: {fileID: 3332756950553193982, guid: 4f9803ed31b25c049b47eaf15bcb0c32,
         type: 3}
@@ -16947,7 +16947,7 @@ PrefabInstance:
     - target: {fileID: 3332756950553193982, guid: 4f9803ed31b25c049b47eaf15bcb0c32,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 65.47
+      value: 67.65
       objectReference: {fileID: 0}
     - target: {fileID: 3332756950553193982, guid: 4f9803ed31b25c049b47eaf15bcb0c32,
         type: 3}
@@ -17251,30 +17251,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1310921261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5bfd7a016cde3b4281b1b9a0aa51b66, type: 3}
+  m_Script: {fileID: 11500000, guid: 129016b9f85b6ea4ab6a1cd197b32e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textLable: {fileID: 918546409}
   FaceImage: {fileID: 1866334609}
   textPanel: {fileID: 1503326412}
-  textFile: {fileID: 4900000, guid: 226887805e499034aaeb0bbc262d77de, type: 3}
-  textList: []
-  player: {fileID: 21300000, guid: 4bf08de982e2b32409c580f53f04fcca, type: 3}
-  Npc: {fileID: 21300000, guid: 256eab44038f7e74e93d900cf0cd6129, type: 3}
---- !u!114 &1310921263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310921261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78b1be9ad8b005040ba72c61a43cb57e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   button: {fileID: 1108169758}
-  talkUI: {fileID: 1503326412}
+  talkList: []
+  player: {fileID: 21300000, guid: 4bf08de982e2b32409c580f53f04fcca, type: 3}
+  Npc: {fileID: 21300000, guid: 0b2a97acb0a219543b092d689da6f199, type: 3}
+  AnswerSystem: {fileID: 979368956}
+  item: {fileID: 11400000, guid: 884408028be5f30408a74aa6d923798a, type: 2}
+  playerInventory: {fileID: 11400000, guid: 01424942c89d7554da7672fe6852b9e5, type: 2}
+  itemImage: {fileID: 1480379421}
+  itemText: {fileID: 1140545962}
+  itemPanel: {fileID: 868662227}
+  itemAudio: {fileID: 5397443785371397191, guid: 774a563661d598342b4d92e4bb650074,
+    type: 3}
 --- !u!65 &1310921264
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19551,6 +19545,8 @@ MonoBehaviour:
   BtnNext: {fileID: 1903254556}
   BtnTip: {fileID: 262979557}
   TextAccuracy: {fileID: 161076244}
+  Accuracy: {fileID: 0}
+  Npc02: {fileID: 1310921261}
 --- !u!114 &1426243547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24773,7 +24769,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796392515}
-  m_LocalRotation: {x: 0.086016186, y: -0.19252713, z: 0.016943933, w: 0.97736764}
+  m_LocalRotation: {x: 0.086016156, y: -0.19252713, z: 0.016943926, w: 0.97736764}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
