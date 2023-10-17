@@ -7,10 +7,12 @@ TagManager:
   - Sheep
   - Cow
   - menuBgm
-  - Chicken
   - Pig
   - NPC
   - haili
+  - Npc02
+  - NpcChicken
+  - egg
   layers:
   - Default
   - TransparentFX

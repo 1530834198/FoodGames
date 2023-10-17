@@ -49,7 +49,6 @@ namespace Cinemachine.Examples
         private void Update()
         {
             OpenMyBag();
-            test();
         }
         void FixedUpdate()
         {
@@ -177,18 +176,18 @@ namespace Cinemachine.Examples
                 }
             }
         }
-        void test()
-        {
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.Confined;
-                SaveByPlayerPrefs();
-                
-                SceneManager.LoadScene(3);
-                
-            }
-        }
+        //void test()
+        //{
+        //    if (Input.GetKeyDown(KeyCode.L))
+        //    {
+        //        Cursor.visible = true;
+        //        Cursor.lockState = CursorLockMode.Confined;
+        //        SaveByPlayerPrefs();
+
+        //        SceneManager.LoadScene(3);
+
+        //    }
+        //}
     }
 
 }

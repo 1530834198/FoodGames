@@ -19,6 +19,7 @@ public class Npc02 : MonoBehaviour
     // private bool hasCollided = false;//判断是否碰撞
     private int index;
     private string accuracy;
+    private bool isNpc02;
     [Header("头像")]public Sprite player, Npc;//角色头像
     public GameObject AnswerSystem;
     
@@ -53,7 +54,7 @@ public class Npc02 : MonoBehaviour
 
     void Update()
     {
-        if (talkList.Count!=0)
+        if (isNpc02 && talkList.Count!=0)
         {
             if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
             {
@@ -85,7 +86,7 @@ public class Npc02 : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (isNpc02 && Input.GetKeyDown(KeyCode.R))
         {
             AnswerSystem.SetActive(true);
         }
@@ -140,11 +141,16 @@ public class Npc02 : MonoBehaviour
         {
             button.SetActive(true);
         }
+        if (gameObject.CompareTag("Npc02"))
+        {
+            isNpc02 = true;
+        }
     }
 
     private void OnCollisionExit(Collision other)
     {
         button.SetActive(false);
+        isNpc02 = false;
     }
 
     public void setAccuracy(string accuracy)
