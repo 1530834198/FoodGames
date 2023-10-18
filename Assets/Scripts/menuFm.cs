@@ -9,7 +9,7 @@ public class menuFm : MonoBehaviour
     public GameObject bgmprefab;
 
     public GameObject bgmPanel;
-    public GameObject video;
+    //public GameObject video;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +26,8 @@ public class menuFm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OpenVideo();
-        CloseVideo();
+        //OpenVideo();
+        //CloseVideo();
     }
     /**
      * 开始游戏
@@ -87,23 +87,23 @@ public class menuFm : MonoBehaviour
             Application.Quit();//打包后使用
 #endif
     }
-    void OpenVideo()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            video.SetActive(true);
-            bgm.GetComponent<AudioSource>().Pause();
-        }
+    //void OpenVideo()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.P))
+    //    {
+    //        video.SetActive(true);
+    //        bgm.GetComponent<AudioSource>().Pause();
+    //    }
 
-    }
-    void CloseVideo()
-    {
-        var videoplayer = video.GetComponent<UnityEngine.Video.VideoPlayer>();
-        if (videoplayer.frame == (long)(videoplayer.frameCount - 1))
-        {
-            video.SetActive(false);
-            bgm.GetComponent<AudioSource>().Play();
-        }
-    }
+    //}
+    //void CloseVideo()
+    //{
+    //    var videoplayer = video.GetComponent<UnityEngine.Video.VideoPlayer>();
+    //    if (videoplayer.frame == (long)(videoplayer.frameCount - 1))
+    //    {
+    //        video.SetActive(false);
+    //        bgm.GetComponent<AudioSource>().Play();
+    //    }
+    //}
 
 }

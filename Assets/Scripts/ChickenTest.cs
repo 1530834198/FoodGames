@@ -11,6 +11,7 @@ public class ChickenTest : MonoBehaviour
     public Image FaceImage;//显示当前讲话的人物的头像的
     public GameObject textPanel;//对话框
     public GameObject button;
+    private bool isact = true;
 
     // [Header("文本文件")] public TextAsset textFile;//文本文件
     public List<string> talkList = new List<string>();//存放文本数据
@@ -87,22 +88,27 @@ public class ChickenTest : MonoBehaviour
             
 
         }
-        if (GameObject.FindWithTag("egg") == null )
+        if (GameObject.FindWithTag("egg") == null && isNpcChicken && Input.GetKeyUp(KeyCode.F) && isact)
         {
             textLable.text = "你实在是在厉害了！恭喜你获得鸡蛋。";
-            if (!textPanel.activeSelf && Input.GetKeyDown(KeyCode.F))
-            {
+            FaceImage.sprite = Npc;
+            textPanel.SetActive(true);
 
-                if (!playerInventory.itemsList.Contains(item))
-                {
-                    playerInventory.itemsList.Add(item);
-                    InventoryManager.CreateNewItem(item);
-                    isFill = true;
-                    itemImage.sprite = gameObject.GetComponent<ChickenTest>().item.itemImage;
-                    itemText.text = "恭喜您获得了" + gameObject.GetComponent<ChickenTest>().item.itemName;
-                    itembgm = Instantiate(itemAudio);
-                    itembgm.GetComponent<AudioSource>().Play();
-                }
+        }
+        if (GameObject.FindWithTag("egg") == null && textPanel.activeSelf && Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log("GGGG");
+            textPanel.SetActive(false);
+            isact = false;
+            if (!playerInventory.itemsList.Contains(item))
+            {
+                playerInventory.itemsList.Add(item);
+                InventoryManager.CreateNewItem(item);
+                isFill = true;
+                itemImage.sprite = gameObject.GetComponent<ChickenTest>().item.itemImage;
+                itemText.text = "恭喜您获得了" + gameObject.GetComponent<ChickenTest>().item.itemName;
+                itembgm = Instantiate(itemAudio);
+                itembgm.GetComponent<AudioSource>().Play();
             }
         }
         //计算显示时间
