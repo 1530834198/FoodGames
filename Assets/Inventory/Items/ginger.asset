@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23098547bff8cd44bbad084591c4542, type: 3}
+  m_Name: ginger
+  m_EditorClassIdentifier: 
+  itemName: "\u751F\u59DC"
+  itemImage: {fileID: 21300000, guid: a038bf13832b6794293fd888cfa0336b, type: 3}
+  itemInfo: "\u59DC\uFF0C\u662F\u59DC\u79D1\u59DC\u5C5E\u591A\u5E74\u751F\u8349\u672C\u690D\u7269\u3002\u6839\u830E\u4F9B\u836F\u7528\uFF0C\u9C9C\u54C1\u6216\u5E72\u54C1\u53EF\u4F5C\u70F9\u8C03\u914D\u6599\u6216\u5236\u6210\u9171\u83DC\u3001\u7CD6\u59DC\u3002\u830E\u3001\u53F6\u3001\u6839\u830E\u5747\u53EF\u63D0\u53D6\u82B3\u9999\u6CB9\uFF0C\u7528\u4E8E\u98DF\u54C1\u3001\u996E\u6599\u53CA\u5316\u5986\u54C1\u9999\u6599\u4E2D\u3002"
+  equip: 0

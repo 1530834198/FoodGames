@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23098547bff8cd44bbad084591c4542, type: 3}
+  m_Name: garlic
+  m_EditorClassIdentifier: 
+  itemName: "\u849C\u82D7"
+  itemImage: {fileID: 21300000, guid: 2f1c829fe98cf694d9bae103c32318ee, type: 3}
+  itemInfo: "\u849C\u82D7\uFF0C\u53C8\u53EB\u9752\u849C\uFF08\u4E0D\u89C1\u5149\u65F6\u4E3A\u849C\u9EC4\uFF09\u3002\u54C1\u8D28\u597D\u7684\u849C\u82D7\u5E94\u8BE5\u9C9C\u5AE9\uFF0C\u682A\u9AD8\u572835\u5398\u7C73\u5DE6\u53F3\uFF0C\u53F6\u8272\u9C9C\u7EFF\uFF0C\u4E0D\u9EC4\u4E0D\u70C2\uFF0C\u6BDB\u6839\u767D\u8272\u4E0D\u67AF\u840E\uFF0C\u800C\u4E14\u8FA3\u5473\u8F83\u6D53\u3002"
+  equip: 0

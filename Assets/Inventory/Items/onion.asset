@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d23098547bff8cd44bbad084591c4542, type: 3}
-  m_Name: rou
+  m_Name: onion
   m_EditorClassIdentifier: 
-  itemName: "\u8089"
-  itemImage: {fileID: 21300000, guid: 42584713bd7941f49b34a50a45b5c7ea, type: 3}
-  itemHeld: 0
-  itemInfo: "\u7F8E\u5473\u65B0\u9C9C\u7684\u8089"
+  itemName: "\u6D0B\u8471"
+  itemImage: {fileID: 21300000, guid: bdd5d3130e277e543999a04110d6515e, type: 3}
+  itemInfo: "\u6D0B\u8471\u53EF\u4F5C\u4E3A\u98DF\u7269\u7684\u8C03\u5473\u54C1\uFF0C\u73CD\u73E0\u6D0B\u8471\u901A\u5E38\u7528\u6765\u4F5C\u4E3A\u9E21\u5C3E\u9152\u4E2D\u7684\u6DFB\u52A0\u914D\u9970\u6216\u8C03\u5473\u54C1\u3002"
   equip: 0
