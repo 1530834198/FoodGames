@@ -13,6 +13,8 @@ TagManager:
   - Npc02
   - NpcChicken
   - egg
+  - Chicken
+  - NpcCooker
   layers:
   - Default
   - TransparentFX
