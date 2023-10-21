@@ -5,31 +5,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Npc02 : MonoBehaviour
+public class Npcqiuqiu : MonoBehaviour
 {
     [Header("UI组件")] public Text textLable;//textUI-显示文本用的
     public Image FaceImage;//显示当前讲话的人物的头像的
     public GameObject textPanel;//对话框
     public GameObject button;
-    
+    public GameObject mainCamera;
+
     // [Header("文本文件")] public TextAsset textFile;//文本文件
     public List<string> talkList = new List<string>();//存放文本数据
 
     private string[] textString;
     // private bool hasCollided = false;//判断是否碰撞
     private int index;
-    private string accuracy;
+    private int finishCount;
     private bool isNpcqiuqiu;
-    [Header("头像")]public Sprite player, Npc;//角色头像
-    public GameObject AnswerSystem;
-    
+    [Header("头像")] public Sprite player, Npc;//角色头像
+    public GameObject pintuGame;
+
     public Item item;//物品
     public Inventory playerInventory;//背包
     public Image itemImage;//物品图片
     public Text itemText;//物品名称
     public GameObject itemPanel;//物品名称
     public GameObject itemAudio;//获得物品时的声音
-    
+
     private float startTime;//开始显示时间
     private int coldTime = 2;//显示时间
     private bool isFill;//是否开始显示
@@ -38,7 +39,7 @@ public class Npc02 : MonoBehaviour
     void Start()
     {
         index = 0;
-        string filePath = "Assets/File/Npc02.txt";
+        string filePath = "Assets/File/Npcqiuqiu.txt";
         if (File.Exists(filePath))
         {
             string text = File.ReadAllText(filePath);
@@ -47,14 +48,13 @@ public class Npc02 : MonoBehaviour
 
         foreach (var VARIABLE in textString)
         {
-            // Debug.Log(VARIABLE);
             talkList.Add(VARIABLE);
         }
     }
 
     void Update()
     {
-        if (isNpcqiuqiu && talkList.Count!=0)
+        if (isNpcqiuqiu && talkList.Count != 0)
         {
             if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
             {
@@ -88,34 +88,43 @@ public class Npc02 : MonoBehaviour
 
         if (isNpcqiuqiu && Input.GetKeyDown(KeyCode.R))
         {
-            AnswerSystem.SetActive(true);
+            mainCamera.SetActive(false);
+            pintuGame.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            transform.GetComponent<Collider>().enabled = false;
+
         }
-        if (accuracy!=null)
+        if (finishCount == 25)
         {
-            if (accuracy.Equals("正确率：100.00%"))
-            {
-                textLable.text = "你实在是在厉害了！恭喜你这些食材就送给你了。";
-                FaceImage.sprite = Npc;
-                textPanel.SetActive(true);
-            }
-        
+            pintuGame.SetActive(false);
+            mainCamera.SetActive(true);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            textLable.text = "你实在是在厉害了！恭喜你这些食材就送给你了。";
+            FaceImage.sprite = Npc;
+            textPanel.SetActive(true);
+            transform.GetComponent<Collider>().enabled = true;
+
+
             if (textPanel.activeSelf && Input.GetKeyDown(KeyCode.F))
             {
+                finishCount = 0;
                 textPanel.SetActive(false);
-                accuracy = "";
+
                 if (!playerInventory.itemsList.Contains(item))
                 {
                     playerInventory.itemsList.Add(item);
                     InventoryManager.CreateNewItem(item);
                     isFill = true;
-                    itemImage.sprite = gameObject.GetComponent<Npc02>().item.itemImage;
-                    itemText.text = "恭喜您获得了"+gameObject.GetComponent<Npc02>().item.itemName;
+                    itemImage.sprite = gameObject.GetComponent<Npcqiuqiu>().item.itemImage;
+                    itemText.text = "恭喜您获得了" + gameObject.GetComponent<Npcqiuqiu>().item.itemName;
                     itembgm = Instantiate(itemAudio);
                     itembgm.GetComponent<AudioSource>().Play();
                 }
             }
         }
-        
+
         //计算显示时间
         if (isFill)
         {
@@ -141,7 +150,7 @@ public class Npc02 : MonoBehaviour
         {
             button.SetActive(true);
         }
-        if (gameObject.CompareTag("Npc02"))
+        if (gameObject.CompareTag("Npcqiuqiu"))
         {
             isNpcqiuqiu = true;
         }
@@ -153,9 +162,9 @@ public class Npc02 : MonoBehaviour
         isNpcqiuqiu = false;
     }
 
-    public void setAccuracy(string accuracy)
+    public void setFinishCount(int setFinishCount)
     {
-        this.accuracy = accuracy;
+        this.finishCount = setFinishCount;
         // Debug.Log(this.accuracy);
     }
 }

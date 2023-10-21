@@ -15,6 +15,7 @@ TagManager:
   - egg
   - Chicken
   - NpcCooker
+  - Npcqiuqiu
   layers:
   - Default
   - TransparentFX
