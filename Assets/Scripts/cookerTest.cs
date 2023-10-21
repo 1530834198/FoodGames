@@ -2,8 +2,10 @@
 using System.Collections;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class cookerTest : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class cookerTest : MonoBehaviour
     public Image FaceImage;//显示当前讲话的人物的头像的
     public GameObject textPanel;//对话框
     public GameObject button;
+    public List<Item> oysterFoodList;//海蛎煎的食材列表
+    public GameObject teachVideo;//教学视频对象
+    public VideoPlayer video;//教学视频
     
     // [Header("文本文件")] public TextAsset textFile;//文本文件
     public List<string> talkList = new List<string>();//存放文本数据
@@ -84,6 +89,27 @@ public class cookerTest : MonoBehaviour
                 //遍历每一条数据
                 textLable.text = talkList[index];
                 index++;
+            }
+        }
+        if (playerInventory.itemsList.Count==oysterFoodList.Count && playerInventory.itemsList.All(oysterFoodList.Contains))
+        {
+            if (isNpcCooker && Input.GetKeyDown(KeyCode.F))
+            {
+                textLable.text = "你实在是在厉害了！竟然集齐了所有材料，那我们马上开始制作吧。按R键开始制作。";
+                FaceImage.sprite = Npc;
+                textPanel.SetActive(true);
+            }
+            
+            if (textPanel.activeSelf && Input.GetKeyDown(KeyCode.R))
+            {
+                teachVideo.SetActive(true);
+                video.Play();
+                if (video.frame == (long)(video.frameCount - 1))
+                {
+                    print("视频播放完毕");
+                    teachVideo.SetActive(false);
+                }
+                textPanel.SetActive(false);
             }
         }
         //计算显示时间
