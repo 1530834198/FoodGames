@@ -83,7 +83,8 @@ public class ChickenTest : MonoBehaviour
                 //遍历每一条数据
                 textLable.text = talkList[index];
                 index++;
-                weilan.SetActive(false);
+                // weilan.SetActive(false);
+                weilan.GetComponent<Collider>().isTrigger = true;
             }
             
 
