@@ -11,15 +11,12 @@ public class Npc02 : MonoBehaviour
     public Image FaceImage;//显示当前讲话的人物的头像的
     public GameObject textPanel;//对话框
     public GameObject button;
-    
-    // [Header("文本文件")] public TextAsset textFile;//文本文件
     public List<string> talkList = new List<string>();//存放文本数据
 
     private string[] textString;
-    // private bool hasCollided = false;//判断是否碰撞
     private int index;
     private string accuracy;
-    private bool isNpcqiuqiu;
+    private bool isNpc02;
     [Header("头像")]public Sprite player, Npc;//角色头像
     public GameObject AnswerSystem;
     
@@ -54,7 +51,7 @@ public class Npc02 : MonoBehaviour
 
     void Update()
     {
-        if (isNpcqiuqiu && talkList.Count!=0)
+        if (isNpc02 && talkList.Count!=0)
         {
             if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
             {
@@ -86,19 +83,21 @@ public class Npc02 : MonoBehaviour
             }
         }
 
-        if (isNpcqiuqiu && Input.GetKeyDown(KeyCode.R))
+        //按R键答题
+        if (isNpc02 && Input.GetKeyDown(KeyCode.R))
         {
             AnswerSystem.SetActive(true);
         }
         if (accuracy!=null)
         {
+            //如果答题100正确
             if (accuracy.Equals("正确率：100.00%"))
             {
                 textLable.text = "你实在是在厉害了！恭喜你这些食材就送给你了。";
                 FaceImage.sprite = Npc;
                 textPanel.SetActive(true);
             }
-        
+            //获取物品
             if (textPanel.activeSelf && Input.GetKeyDown(KeyCode.F))
             {
                 textPanel.SetActive(false);
@@ -143,19 +142,21 @@ public class Npc02 : MonoBehaviour
         }
         if (gameObject.CompareTag("Npc02"))
         {
-            isNpcqiuqiu = true;
+            isNpc02 = true;
         }
     }
 
     private void OnCollisionExit(Collision other)
     {
         button.SetActive(false);
-        isNpcqiuqiu = false;
+        isNpc02 = false;
     }
 
+    /**
+     * 设置(获取)正确率
+     */
     public void setAccuracy(string accuracy)
     {
         this.accuracy = accuracy;
-        // Debug.Log(this.accuracy);
     }
 }

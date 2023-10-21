@@ -93,7 +93,6 @@ public class Npcqiuqiu : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             transform.GetComponent<Collider>().enabled = false;
-
         }
         if (finishCount == 25)
         {
@@ -165,6 +164,5 @@ public class Npcqiuqiu : MonoBehaviour
     public void setFinishCount(int setFinishCount)
     {
         this.finishCount = setFinishCount;
-        // Debug.Log(this.accuracy);
     }
 }
