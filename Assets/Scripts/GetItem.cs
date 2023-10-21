@@ -12,6 +12,7 @@ public class GetItem : MonoBehaviour
     private bool isFlag;//是否碰撞
     private bool isTrigger;//是否接触，拾取
     public int isTriOrCon;
+    public GameObject button;
 
     private Inventory playerInventory;//背包
     public Image itemImage;//物品图片
@@ -27,6 +28,10 @@ public class GetItem : MonoBehaviour
 
     void Update()
     {
+        if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
+        {
+            button.SetActive(false);
+        }
         if (isTrigger || (Input.GetKeyDown(KeyCode.F) && isFlag))
         { 
             if (!playerInventory.itemsList.Contains(item))
@@ -71,6 +76,7 @@ public class GetItem : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isFlag = true;
+            button.SetActive(true);
             playerInventory = collision.gameObject.GetComponent<Player>().playerInventory;
         }
     }
@@ -78,6 +84,7 @@ public class GetItem : MonoBehaviour
     private void OnCollisionExit(Collision other)
     {
         isFlag = false;
+        button.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider collider)

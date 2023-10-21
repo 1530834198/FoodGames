@@ -66,7 +66,7 @@ public class main : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyUp(KeyCode.R))
         {
             StartGame();
         }

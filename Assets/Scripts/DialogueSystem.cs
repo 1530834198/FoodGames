@@ -17,9 +17,21 @@ public class DialogueSystem : MonoBehaviour
     private bool hasCollided = false;//判断是否碰撞
     private int index;
     [Header("头像")]public Sprite player, Npc;//角色头像
+    public GameObject button;
+    public GameObject talkUI;
+    private bool isNpc;
 
     void Update()
     {
+        //如果是NPC就显示对话弹窗
+        if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
+        {
+            if (isNpc)
+            {
+                button.SetActive(false);
+                textPanel.SetActive(true);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.F) && index == textList.Count && textList.Count != 0)
         {
             textPanel.SetActive(false);
@@ -61,6 +73,12 @@ public class DialogueSystem : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //判断碰撞是是否是NPC
+            isNpc = gameObject.CompareTag("NPC");
+            button.SetActive(true);
+        }
         if (collision.gameObject.CompareTag("Player") && !hasCollided)
         {
             //获取当前对象的TextFile
@@ -68,5 +86,11 @@ public class DialogueSystem : MonoBehaviour
             GetTextFormFile(textAsset);
         }
         hasCollided = true;
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        isNpc = false;
+        button.SetActive(false);
     }
 }
