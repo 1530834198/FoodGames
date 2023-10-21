@@ -65,6 +65,8 @@ public class GetItem : MonoBehaviour
                 if (isTriOrCon == 1)
                 {
                     Destroy(gameObject);
+                    //要把update停掉,不然一直执行。
+                    enabled = false;
                 }
             }
         }

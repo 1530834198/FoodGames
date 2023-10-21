@@ -53,18 +53,18 @@ public class Npc02 : MonoBehaviour
     {
         if (isNpc02 && talkList.Count!=0)
         {
-            if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
-            {
-                button.SetActive(false);
-                textPanel.SetActive(true);
-            }
-            if (Input.GetKeyDown(KeyCode.F) && index == talkList.Count)
-            {
-                textPanel.SetActive(false);
-                index = 0;
-            }
             if (Input.GetKeyDown(KeyCode.F))
             {
+                if (button.activeSelf)
+                {
+                    button.SetActive(false);
+                    textPanel.SetActive(true);
+                }
+                if (index == talkList.Count)
+                {
+                    textPanel.SetActive(false);
+                    index = 0;
+                }
                 //判断当前是谁的对话，并且切换头像
                 switch (talkList[index].Trim())
                 {
@@ -101,7 +101,7 @@ public class Npc02 : MonoBehaviour
             if (textPanel.activeSelf && Input.GetKeyDown(KeyCode.F))
             {
                 textPanel.SetActive(false);
-                accuracy = "";
+                accuracy = null;
                 if (!playerInventory.itemsList.Contains(item))
                 {
                     playerInventory.itemsList.Add(item);
@@ -130,6 +130,8 @@ public class Npc02 : MonoBehaviour
                 startTime = 0;
                 itemPanel.SetActive(false);
                 Destroy(itembgm);
+                //要把update停掉,不然一直执行。
+                enabled = false;
             }
         }
     }

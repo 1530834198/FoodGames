@@ -60,15 +60,18 @@ public class cookerTest : MonoBehaviour
         //对话显示
         if (isNpcCooker && talkList.Count!=0)
         {
-            if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                button.SetActive(false);
-                textPanel.SetActive(true);
-            }
-            if ((Input.GetKeyDown(KeyCode.F) && index == talkList.Count) || (index == -1&&Input.GetKeyDown(KeyCode.F)))
-            {
-                textPanel.SetActive(false);
-                index = 0;
+                if (button.activeSelf)
+                {
+                    button.SetActive(false);
+                    textPanel.SetActive(true);
+                }
+                if(index == talkList.Count || index == -1)
+                {
+                    textPanel.SetActive(false);
+                    index = 0;
+                }
             }
 
             if (!playerInventory.itemsList.Contains(item))
@@ -139,7 +142,6 @@ public class cookerTest : MonoBehaviour
             if (textPanel.activeSelf && Input.GetKeyDown(KeyCode.R))
             {
                 if (!isOverVideo) {
-                    // Debug.Log("456");
                     textPanel.SetActive(false);
                     teachVideo.SetActive(true);
                     if (!video.isPrepared)
@@ -170,6 +172,8 @@ public class cookerTest : MonoBehaviour
                 startTime = 0;
                 itemPanel.SetActive(false);
                 Destroy(itembgm);
+                //要把update停掉,不然一直执行。
+                enabled = false;
             }
         }
     }
@@ -183,6 +187,7 @@ public class cookerTest : MonoBehaviour
         if (gameObject.CompareTag("NpcCooker"))
         {
             isNpcCooker = true;
+            enabled = true;
         }
     }
 
@@ -190,6 +195,7 @@ public class cookerTest : MonoBehaviour
     {
         button.SetActive(false);
         isNpcCooker = false;
+        enabled = false;
     }
 
     // 等待视频准备就绪的协程

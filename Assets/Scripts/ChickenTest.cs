@@ -53,18 +53,20 @@ public class ChickenTest : MonoBehaviour
         //文本对话
         if (isNpcChicken &&talkList.Count != 0 && GameObject.FindWithTag("egg")!=null)
         {
-            if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
-            {
-                button.SetActive(false);
-                textPanel.SetActive(true);
-            }
-            if (Input.GetKeyDown(KeyCode.F) && index == talkList.Count)
-            {
-                textPanel.SetActive(false);
-                index = 0;
-            }
             if (Input.GetKeyDown(KeyCode.F))
             {
+                if (button.activeSelf)
+                {
+                    button.SetActive(false);
+                    textPanel.SetActive(true);
+                }
+                if (index == talkList.Count)
+                {
+                    textPanel.SetActive(false);
+                    index = 0;
+                    //草丛碰撞体可接触
+                    weilan.GetComponent<Collider>().isTrigger = true;
+                }
                 //判断当前是谁的对话，并且切换头像
                 switch (talkList[index].Trim())
                 {
@@ -80,35 +82,36 @@ public class ChickenTest : MonoBehaviour
                 //遍历每一条数据
                 textLable.text = talkList[index];
                 index++;
-                //草丛碰撞体可接触
-                weilan.GetComponent<Collider>().isTrigger = true;
             }
         }
 
         if (GameObject.FindWithTag("egg")==null)
         {
-            //背包获取鸡蛋
-            if (textPanel.activeSelf && Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                textPanel.SetActive(false);
-                isact = true;
-                if (!playerInventory.itemsList.Contains(item))
+                //背包获取鸡蛋
+                if (textPanel.activeSelf)
                 {
-                    playerInventory.itemsList.Add(item);
-                    InventoryManager.CreateNewItem(item);
-                    isFill = true;
-                    itemImage.sprite = gameObject.GetComponent<ChickenTest>().item.itemImage;
-                    itemText.text = "恭喜您获得了" + gameObject.GetComponent<ChickenTest>().item.itemName;
-                    itembgm = Instantiate(itemAudio);
-                    itembgm.GetComponent<AudioSource>().Play();
+                    textPanel.SetActive(false);
+                    isact = true;
+                    if (!playerInventory.itemsList.Contains(item))
+                    {
+                        playerInventory.itemsList.Add(item);
+                        InventoryManager.CreateNewItem(item);
+                        isFill = true;
+                        itemImage.sprite = gameObject.GetComponent<ChickenTest>().item.itemImage;
+                        itemText.text = "恭喜您获得了" + gameObject.GetComponent<ChickenTest>().item.itemName;
+                        itembgm = Instantiate(itemAudio);
+                        itembgm.GetComponent<AudioSource>().Play();
+                    }
                 }
-            }
-            //如果捡了所有鸡蛋
-            if (isNpcChicken && Input.GetKeyDown(KeyCode.F) && !textPanel.activeSelf && !isact)
-            {
-                textLable.text = "你实在是在厉害了！恭喜你获得鸡蛋。";
-                FaceImage.sprite = Npc;
-                textPanel.SetActive(true);
+                //如果捡了所有鸡蛋
+                if (isNpcChicken && !textPanel.activeSelf && !isact)
+                {
+                    textLable.text = "你实在是在厉害了！恭喜你获得鸡蛋。";
+                    FaceImage.sprite = Npc;
+                    textPanel.SetActive(true);
+                }
             }
         }
         
@@ -127,6 +130,8 @@ public class ChickenTest : MonoBehaviour
                 startTime = 0;
                 itemPanel.SetActive(false);
                 Destroy(itembgm);
+                //要把update停掉,不然一直执行。
+                enabled = false;
             }
         }
     }

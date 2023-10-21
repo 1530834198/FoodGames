@@ -24,38 +24,40 @@ public class DialogueSystem : MonoBehaviour
     void Update()
     {
         //如果是NPC就显示对话弹窗
-        if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (isNpc)
+            if (button.activeSelf)
             {
-                button.SetActive(false);
-                textPanel.SetActive(true);
+                if (isNpc)
+                {
+                    button.SetActive(false);
+                    textPanel.SetActive(true);
+                }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.F) && index == textList.Count && textList.Count != 0)
-        {
-            textPanel.SetActive(false);
-            index = 0;
-            hasCollided = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.F) && hasCollided)
-        {
-            //判断当前是谁的对话，并且切换头像
-            switch (textList[index].Trim())
+            if(index == textList.Count && textList.Count != 0)
             {
-                case "A":
-                    FaceImage.sprite = Npc;
-                    index++;
-                    break;
-                case "Player":
-                    FaceImage.sprite = player;
-                    index++;
-                    break;
+                textPanel.SetActive(false);
+                index = 0;
+                hasCollided = false;
             }
-            //遍历每一条数据
+            if (hasCollided)
+            {
+                //判断当前是谁的对话，并且切换头像
+                switch (textList[index].Trim())
+                {
+                    case "A":
+                        FaceImage.sprite = Npc;
+                        index++;
+                        break;
+                    case "Player":
+                        FaceImage.sprite = player;
+                        index++;
+                        break;
+                }
+                //遍历每一条数据
                 textLable.text = textList[index];
-            index++;
+                index++;
+            }
         }
     }
 
