@@ -18,11 +18,8 @@ public class cookerTest : MonoBehaviour
     public GameObject teachVideo;//教学视频对象
     public VideoPlayer video;//教学视频
     
-    // [Header("文本文件")] public TextAsset textFile;//文本文件
     public List<string> talkList = new List<string>();//存放文本数据
-
     private string[] textString;
-    // private bool hasCollided = false;//判断是否碰撞
     private int index;
     private bool isNpcCooker;
     [Header("头像")]public Sprite player, Npc;//角色头像
@@ -33,12 +30,13 @@ public class cookerTest : MonoBehaviour
     public Text itemText;//物品名称
     public GameObject itemPanel;//物品名称
     public GameObject itemAudio;//获得物品时的声音
-    
+
     private float startTime;//开始显示时间
     private int coldTime = 2;//显示时间
     private bool isFill;//是否开始显示
     private GameObject itembgm;
-    
+    private bool isOverVideo;//判断视频是否播放过一次完了
+
     void Start()
     {
         //获取对话文本
@@ -67,30 +65,46 @@ public class cookerTest : MonoBehaviour
                 button.SetActive(false);
                 textPanel.SetActive(true);
             }
-            if (Input.GetKeyDown(KeyCode.F) && index == talkList.Count)
+            if ((Input.GetKeyDown(KeyCode.F) && index == talkList.Count) || (index == -1&&Input.GetKeyDown(KeyCode.F)))
             {
                 textPanel.SetActive(false);
                 index = 0;
             }
-            if (Input.GetKeyDown(KeyCode.F))
+
+            if (!playerInventory.itemsList.Contains(item))
             {
-                //判断当前是谁的对话，并且切换头像
-                switch (talkList[index].Trim())
+                if (Input.GetKeyDown(KeyCode.F))
                 {
-                    case "A":
-                        FaceImage.sprite = Npc;
-                        index++;
-                        break;
-                    case "Player":
-                        FaceImage.sprite = player;
-                        index++;
-                        break;
+                    //判断当前是谁的对话，并且切换头像
+                    switch (talkList[index].Trim())
+                    {
+                        case "A":
+                            FaceImage.sprite = Npc;
+                            index++;
+                            break;
+                        case "Player":
+                            FaceImage.sprite = player;
+                            index++;
+                            break;
+                    }
+                    //遍历每一条数据
+                    textLable.text = talkList[index];
+                    index++;
                 }
-                //遍历每一条数据
-                textLable.text = talkList[index];
-                index++;
+            }
+            else
+            {
+                //已经做完海蛎煎了
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    textLable.text = "滚蛋";
+                    FaceImage.sprite = Npc;
+                    index=-1;
+                }
             }
         }
+        
+        //如果收集器所有材料，开始制作
         if (playerInventory.itemsList.Count==oysterFoodList.Count && playerInventory.itemsList.All(oysterFoodList.Contains))
         {
             if (isNpcCooker && Input.GetKeyDown(KeyCode.F))
@@ -100,16 +114,45 @@ public class cookerTest : MonoBehaviour
                 textPanel.SetActive(true);
             }
             
+            if (isOverVideo && !teachVideo.activeSelf)
+            {
+                textLable.text = "喏，海蛎煎给你！快滚快滚！！！";
+                textPanel.SetActive(true);
+                teachVideo.SetActive(false);
+            }
+            
+            if (isOverVideo && textPanel.activeSelf && Input.GetKeyDown(KeyCode.F))
+            {
+                textPanel.SetActive(false);
+                if (!playerInventory.itemsList.Contains(item))
+                {
+                    // playerInventory.itemsList.Clear();
+                    playerInventory.itemsList.Add(item);
+                    InventoryManager.CreateNewItem(item);
+                    isFill = true;
+                    itemImage.sprite = gameObject.GetComponent<cookerTest>().item.itemImage;
+                    itemText.text = "恭喜您获得了"+gameObject.GetComponent<cookerTest>().item.itemName;
+                    itembgm = Instantiate(itemAudio);
+                    itembgm.GetComponent<AudioSource>().Play();
+                }
+            }
             if (textPanel.activeSelf && Input.GetKeyDown(KeyCode.R))
             {
-                teachVideo.SetActive(true);
-                video.Play();
-                if (video.frame == (long)(video.frameCount - 1))
-                {
-                    print("视频播放完毕");
-                    teachVideo.SetActive(false);
+                if (!isOverVideo) {
+                    // Debug.Log("456");
+                    textPanel.SetActive(false);
+                    teachVideo.SetActive(true);
+                    if (!video.isPrepared)
+                    {
+                        // 等待视频准备就绪
+                        StartCoroutine(PrepareVideoAndPlay());
+                    }
+                    else
+                    {
+                        video.Play();
+                    }
+                    isOverVideo = true;
                 }
-                textPanel.SetActive(false);
             }
         }
         //计算显示时间
@@ -147,5 +190,18 @@ public class cookerTest : MonoBehaviour
     {
         button.SetActive(false);
         isNpcCooker = false;
+    }
+
+    // 等待视频准备就绪的协程
+    private IEnumerator PrepareVideoAndPlay()
+    {
+        video.Prepare();
+
+        while (!video.isPrepared)
+        {
+            yield return null;
+        }
+
+        video.Play();
     }
 }
