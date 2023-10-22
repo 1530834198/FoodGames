@@ -28,14 +28,11 @@ public class GetItem : MonoBehaviour
 
     void Update()
     {
-        if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
-        {
-            button.SetActive(false);
-        }
         if (isTrigger || (Input.GetKeyDown(KeyCode.F) && isFlag))
         { 
             if (!playerInventory.itemsList.Contains(item))
             {
+                
                 playerInventory.itemsList.Add(item);
                 InventoryManager.CreateNewItem(item);
                 isFill = true;
@@ -44,6 +41,7 @@ public class GetItem : MonoBehaviour
                 itembgm = Instantiate(itemAudio);
                 itembgm.GetComponent<AudioSource>().Play();
             }
+            button.SetActive(false);
         }
 
         if (isFill)
