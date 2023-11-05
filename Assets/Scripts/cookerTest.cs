@@ -17,6 +17,7 @@ public class cookerTest : MonoBehaviour
     public List<Item> oysterFoodList;//海蛎煎的食材列表
     public GameObject teachVideo;//教学视频对象
     public VideoPlayer video;//教学视频
+    public GameObject taskSmallUI;//任务UI
     
     public List<string> talkList = new List<string>();//存放文本数据
     private string[] textString;
@@ -71,6 +72,7 @@ public class cookerTest : MonoBehaviour
                 {
                     textPanel.SetActive(false);
                     index = 0;
+                    taskSmallUI.SetActive(true);
                 }
             }
 
@@ -105,6 +107,7 @@ public class cookerTest : MonoBehaviour
                     index=-1;
                 }
             }
+            
         }
         
         //如果收集器所有材料，开始制作
