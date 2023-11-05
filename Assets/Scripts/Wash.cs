@@ -27,11 +27,10 @@ public class Wash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
-        {
-            button.SetActive(false);
-            
-        }
+        // if (button.activeSelf && Input.GetKeyDown(KeyCode.F))
+        // {
+        //     button.SetActive(false); 
+        // }
         if (Input.GetKeyDown(KeyCode.F) && isFlag){
             if (playerInventory.itemsList.Contains(oldItem))
             {
@@ -44,7 +43,6 @@ public class Wash : MonoBehaviour
                     itemText.text = "恭喜您获得了" + gameObject.GetComponent<Wash>().newItem.itemName;
                     itembgm = Instantiate(itemAudio);
                     itembgm.GetComponent<AudioSource>().Play();
-
                     playerInventory.itemsList.Remove(oldItem);
                 }
             }
