@@ -12,6 +12,7 @@ public class Npcqiuqiu : MonoBehaviour
     public GameObject textPanel;//对话框
     public GameObject button;
     public GameObject mainCamera;
+    public GameObject minmap;
 
     // [Header("文本文件")] public TextAsset textFile;//文本文件
     public List<string> talkList = new List<string>();//存放文本数据
@@ -89,6 +90,7 @@ public class Npcqiuqiu : MonoBehaviour
         if (isNpcqiuqiu && Input.GetKeyDown(KeyCode.R))
         {
             mainCamera.SetActive(false);
+            minmap.SetActive(false);
             pintuGame.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
@@ -97,6 +99,7 @@ public class Npcqiuqiu : MonoBehaviour
         if (finishCount == 25)
         {
             pintuGame.SetActive(false);
+            minmap.SetActive(true);
             mainCamera.SetActive(true);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
