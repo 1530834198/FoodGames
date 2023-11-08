@@ -9,7 +9,7 @@ public class NavPathArrow : MonoBehaviour
 {
     public GameObject player;
     private GameObject demo1 = null;
-    private GameObject ntm;
+    private GameObject ntm = null;
     public GameObject taskUI;
     public GameObject showinfo;
     public MeshRenderer meshRenderer;//箭头3D对象Quad
@@ -33,7 +33,6 @@ public class NavPathArrow : MonoBehaviour
     {
         if (demo1 != null)
         {
-
             if (currentPos != player.transform.position)
             {
                 currentPos = player.transform.position;
@@ -62,7 +61,6 @@ public class NavPathArrow : MonoBehaviour
                 //鼠标锁定
                 Cursor.lockState = CursorLockMode.Locked;
                 taskUI.SetActive(false);
-                
             }
         }
     }
@@ -87,7 +85,6 @@ public class NavPathArrow : MonoBehaviour
     //画路径
     private void DrawLine(Vector3 start, Vector3 end)
     {
-        Debug.Log(transform.gameObject.name);
         MeshRenderer mr;
         mr = Instantiate(meshRenderer);
         line = mr;
@@ -103,15 +100,15 @@ public class NavPathArrow : MonoBehaviour
         mr.material.mainTextureScale = new Vector2(1, length * yscale);
         mr.gameObject.SetActive(true);
     }
-    public void OnBtnClick(GameObject ntm) {
 
+    //追踪按钮
+    public void OnBtnClick(GameObject ntm) {
         if (this.ntm!=null)
         {
-            ntm.SetActive(false);
+            this.ntm.SetActive(false);
         }
         this.ntm = ntm;
         ntm.SetActive(true);
-        Debug.Log(ntm.name);
     }
 }
 

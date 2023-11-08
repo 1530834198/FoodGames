@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3845,7 +3845,6 @@ GameObject:
   m_Component:
   - component: {fileID: 225204670}
   - component: {fileID: 225204672}
-  - component: {fileID: 225204671}
   m_Layer: 0
   m_Name: minmap
   m_TagString: Untagged
@@ -3868,14 +3867,6 @@ Transform:
   m_Father: {fileID: 1392169895}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!81 &225204671
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225204669}
-  m_Enabled: 1
 --- !u!20 &225204672
 Camera:
   m_ObjectHideFlags: 0
@@ -7278,7 +7269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 388520710}
   m_Layer: 0
-  m_Name: haili1
+  m_Name: OysterTraceObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8132,7 +8123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442940435}
   m_Layer: 0
-  m_Name: onionLine
+  m_Name: onionTraceObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8799,7 +8790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &489679819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11854,7 +11845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &655922855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11978,7 +11969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 656266686}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GailicTraceObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13562,6 +13553,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 761747416}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &764929374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764929375}
+  m_Layer: 0
+  m_Name: laverObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &764929375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764929374}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 836603221}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &766042416
 GameObject:
   m_ObjectHideFlags: 0
@@ -14801,7 +14822,7 @@ GameObject:
   - component: {fileID: 862292624}
   - component: {fileID: 862292623}
   m_Layer: 5
-  m_Name: Image
+  m_Name: TextInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30120,7 +30141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d, type: 3}
       propertyPath: m_Name
-      value: haili
+      value: Oyster
       objectReference: {fileID: 0}
     - target: {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d, type: 3}
       propertyPath: m_TagString
@@ -35024,7 +35045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1924425890}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: EggTraceObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36873,10 +36894,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1522324453}
         m_TargetAssemblyTypeName: NavPathArrow, Assembly-CSharp
-        m_MethodName: OnBtnClick
+        m_MethodName: DrawPath
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1996258839}
+          m_ObjectArgument: {fileID: 764929374}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -37827,7 +37848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2052872605}
   m_Layer: 0
-  m_Name: gingerTr
+  m_Name: gingerTraceObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
