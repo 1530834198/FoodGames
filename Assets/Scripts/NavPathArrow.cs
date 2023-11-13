@@ -10,6 +10,7 @@ public class NavPathArrow : MonoBehaviour
     public GameObject player;
     private GameObject demo1 = null;
     private GameObject ntm = null;
+    public GameObject hideBtn;
     public GameObject taskUI;
     public GameObject showinfo;
     public MeshRenderer meshRenderer;//箭头3D对象Quad
@@ -19,6 +20,7 @@ public class NavPathArrow : MonoBehaviour
 
     public float xscale = 1f;//缩放比例
     public float yscale = 1f;
+    private bool isHide=false;
 
     void Start()
     {
@@ -31,17 +33,13 @@ public class NavPathArrow : MonoBehaviour
     }
     void Update()
     {
-        if (demo1 != null)
+        if (demo1 != null && isHide==false)
         {
             if (currentPos != player.transform.position)
             {
                 currentPos = player.transform.position;
-                if (GameObject.Find("Quad(Clone)"))
-                {
-                    HidePath();
-                    DrawPath(demo1);
-                }
-                //Debug.Log(currentPos);
+                HidePath();
+                DrawPath(demo1);
             }
         }
         if (Input.GetKeyDown(KeyCode.J))
@@ -63,6 +61,14 @@ public class NavPathArrow : MonoBehaviour
                 taskUI.SetActive(false);
             }
         }
+        if (GameObject.Find("Quad(Clone)"))
+        {
+            hideBtn.SetActive(true);
+        }
+        else
+        {
+            hideBtn.SetActive(false);
+        }
     }
     //画路径
     public void DrawPath(GameObject demo1)
@@ -73,13 +79,18 @@ public class NavPathArrow : MonoBehaviour
         }
         this.demo1 = demo1;
         DrawLine(player.transform.position, demo1.transform.position);
+        isHide = false;
     }
 
 
     //隐藏路径
     public void HidePath()
     {
-        line.gameObject.SetActive(false);
+        if (GameObject.Find("Quad(Clone)")) {
+            line.gameObject.SetActive(false);
+            isHide = true;
+        }
+        
     }
 
     //画路径
