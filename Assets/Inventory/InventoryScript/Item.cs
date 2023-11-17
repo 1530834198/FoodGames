@@ -10,5 +10,6 @@ public class Item : ScriptableObject
     // public int itemHeld;//物品数量
     [TextArea] public string itemInfo;//物品信息
 
-    public bool equip;//是否可装备
+    [TextArea] public string itemInfoByGame;//游戏内的物品信息
+    // public bool equip;//是否可装备
 }

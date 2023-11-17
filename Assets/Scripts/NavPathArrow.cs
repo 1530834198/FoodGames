@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// 导航箭头
@@ -12,7 +13,7 @@ public class NavPathArrow : MonoBehaviour
     private GameObject ntm = null;
     public GameObject hideBtn;
     public GameObject taskUI;
-    public GameObject showinfo;
+    public Text showinfo;//物品介绍
     public MeshRenderer meshRenderer;//箭头3D对象Quad
     //public List<Transform> points = new List<Transform>();//路径点
     private MeshRenderer line ;//显示的路径
@@ -120,6 +121,10 @@ public class NavPathArrow : MonoBehaviour
         }
         this.ntm = ntm;
         ntm.SetActive(true);
+    }
+    //任务介绍
+    public void OnBtnClickByItemInfo(Item item){
+        showinfo.text = item.itemInfoByGame;
     }
 }
 

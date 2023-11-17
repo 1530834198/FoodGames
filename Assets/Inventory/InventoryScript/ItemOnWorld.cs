@@ -26,12 +26,6 @@ public class ItemOnWorld : MonoBehaviour
             // Debug.Log("456");
             InventoryManager.CreateNewItem(thisItem);
         }
-        // else
-        // {
-        //     //如果在就增加数量
-        //     thisItem.itemHeld += 1;
-        // }
-        // InventoryManager.RefreshItem();
     }
     
     public void AddNewItem(Item item)
@@ -40,7 +34,6 @@ public class ItemOnWorld : MonoBehaviour
         if (!playerInventory.itemsList.Contains(item))
         {
             playerInventory.itemsList.Add(item);
-            // Debug.Log("456");
             InventoryManager.CreateNewItem(item);
         }
     }
