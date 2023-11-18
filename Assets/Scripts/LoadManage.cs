@@ -42,10 +42,10 @@ public class LoadManage : MonoBehaviour
             yield return null;
         }
 
-        // 模拟70%到100%的快速滚动效果
+        // 模拟82%到100%的快速滚动效果
         endTime = Time.time + 1f; // 模拟快速滚动的时间
         while (Time.time < endTime) {
-            // 使用Mathf.Lerp模拟进度从70%到100%的滚动效果
+            // 使用Mathf.Lerp模拟进度从82%到100%的滚动效果
             float progress = Mathf.Lerp(0.82f, 1f, 1 - (endTime - Time.time) / 0.5f);
             slider.value = progress;
             text.text = (progress * 100).ToString("F0") + "%";
