@@ -12,7 +12,9 @@ public class Npcqiuqiu : MonoBehaviour
     public GameObject textPanel;//对话框
     public GameObject button;
     public GameObject mainCamera;
+    public GameObject gameCamera;
     public GameObject minmap;
+
 
     // [Header("文本文件")] public TextAsset textFile;//文本文件
     public List<string> talkList = new List<string>();//存放文本数据
@@ -90,8 +92,9 @@ public class Npcqiuqiu : MonoBehaviour
         if (isNpcqiuqiu && Input.GetKeyDown(KeyCode.R))
         {
             mainCamera.SetActive(false);
-            minmap.SetActive(false);
+            gameCamera.SetActive(true);
             pintuGame.SetActive(true);
+            minmap.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             transform.GetComponent<Collider>().enabled = false;
@@ -99,8 +102,9 @@ public class Npcqiuqiu : MonoBehaviour
         if (finishCount == 25)
         {
             pintuGame.SetActive(false);
-            minmap.SetActive(true);
+            gameCamera.SetActive(false);
             mainCamera.SetActive(true);
+            minmap.SetActive(true);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             textLable.text = "你实在是在厉害了！恭喜你这些食材就送给你了。";
