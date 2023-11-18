@@ -31,6 +31,7 @@ public class Npc02 : MonoBehaviour
     private int coldTime = 2;//显示时间
     private bool isFill;//是否开始显示
     private GameObject itembgm;
+    public GameObject fk;//第三人称视角
 
     void Start()
     {
@@ -86,6 +87,9 @@ public class Npc02 : MonoBehaviour
         //按R键答题
         if (isNpc02 && Input.GetKeyDown(KeyCode.R))
         {
+            fk.SetActive(false);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
             AnswerSystem.SetActive(true);
         }
         if (accuracy!=null)

@@ -28,6 +28,8 @@ public class Answer : MonoBehaviour
     private int isRightNum = 0;//正确题数
     public Text Accuracy;
     public GameObject Npc02;
+    
+    public GameObject fk;//第三人称视角
 
     void Awake()
     {
@@ -137,6 +139,7 @@ public class Answer : MonoBehaviour
                     Cursor.visible = false;
                     //鼠标锁定
                     Cursor.lockState = CursorLockMode.Locked;
+                    fk.SetActive(true);
                 }
                 break;
         }
